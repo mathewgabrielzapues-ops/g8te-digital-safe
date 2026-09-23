@@ -1,0 +1,229 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+    min-height: 100vh;
+}
+
+header {
+    background: #173f5f;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.screen {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+button {
+    border: none;
+    background: #173f5f;
+    color: white;
+    padding: 13px 22px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.scenario-box {
+    background: #f1f3f5;
+    border-left: 5px solid #173f5f;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    white-space: pre-line;
+}
+
+.choice {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: white;
+    color: #222;
+    border: 2px solid #ddd;
+    margin: 10px 0;
+}
+
+.choice:hover {
+    background: #f1f3f5;
+}
+
+.choice:disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+
+.feedback {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 8px;
+    background: #eef5ff;
+}
+
+.feedback.wrong {
+    background: #fdecec;
+}
+
+#final-score {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+
+/* ===================== CONSEQUENCE SIMULATION OVERLAY =====================
+   This is a purely visual effect rendered inside the page. It never opens
+   real popups, never navigates the browser, and never downloads or executes
+   anything. It exists only to make the "what could happen" moment feel more
+   real before showing the safe, factual explanation.
+============================================================================ */
+
+.consequence-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 15, 25, 0.94);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    padding: 30px;
+}
+
+.consequence-overlay.hidden {
+    display: none;
+}
+
+.consequence-content {
+    text-align: center;
+    max-width: 420px;
+}
+
+.consequence-icon {
+    font-size: 54px;
+    margin-bottom: 15px;
+}
+
+.consequence-line {
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 50px;
+    line-height: 1.4;
+}
+
+.consequence-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 5px;
+    margin: 20px 0 10px;
+    overflow: hidden;
+}
+
+.consequence-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: #e63946;
+    transition: width 0.85s ease;
+}
+
+.consequence-tag {
+    margin-top: 15px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #9fd8a3;
+    font-weight: bold;
+}
+
+/* Animation variants, applied as an extra class on the overlay */
+
+.consequence-overlay.shake .consequence-content {
+    animation: cs-shake 0.5s ease-in-out infinite;
+}
+
+.consequence-overlay.glitch .consequence-content {
+    animation: cs-glitch 0.35s steps(2, end) infinite;
+}
+
+.consequence-overlay.pulse .consequence-icon {
+    animation: cs-pulse 0.7s ease-in-out infinite;
+}
+
+.consequence-overlay.flicker {
+    animation: cs-flicker 0.6s steps(2, end) infinite;
+}
+
+@keyframes cs-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+
+@keyframes cs-glitch {
+    0% { transform: translate(0, 0); filter: hue-rotate(0deg); }
+    50% { transform: translate(2px, -2px); filter: hue-rotate(20deg); }
+    100% { transform: translate(-2px, 2px); filter: hue-rotate(0deg); }
+}
+
+@keyframes cs-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes cs-flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+}

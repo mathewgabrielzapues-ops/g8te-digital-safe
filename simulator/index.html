@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G8TE Digital Safe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>G8TE DIGITAL SAFE</h1>
+        <p>Learn. Practice. Stay Safe.</p>
+    </header>
+
+    <main>
+
+        <section id="home-screen" class="screen">
+            <h2>Digital Safety Simulator</h2>
+
+            <p>
+                Test your ability to recognize scams, misinformation,
+                malware, and other digital threats across 10 levels —
+                from easy to hard.
+            </p>
+
+            <button onclick="startGame()">Start Simulation</button>
+        </section>
+
+
+        <section id="game-screen" class="screen hidden">
+
+            <div class="top-bar">
+                <span id="scenario-number">Level 1</span>
+                <span id="score">Score: 0</span>
+            </div>
+
+            <h2 id="scenario-title"></h2>
+
+            <div class="scenario-box">
+                <p id="scenario-text"></p>
+            </div>
+
+            <h3>What would you do?</h3>
+
+            <div id="choices"></div>
+
+            <div id="feedback" class="feedback hidden">
+                <h3 id="feedback-title"></h3>
+                <p id="feedback-text"></p>
+                <button id="feedback-button"></button>
+            </div>
+
+            <!-- Consequence simulation overlay: purely visual, contained inside the page.
+                 No real network requests, downloads, redirects, or popups are triggered. -->
+            <div id="consequence-overlay" class="consequence-overlay hidden">
+                <div class="consequence-content">
+                    <div id="consequence-icon" class="consequence-icon">⚠️</div>
+                    <p id="consequence-line" class="consequence-line">Loading...</p>
+                    <div class="consequence-bar">
+                        <div class="consequence-bar-fill"></div>
+                    </div>
+                    <p class="consequence-tag">SIMULATION — nothing real happened to this device</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <section id="result-screen" class="screen hidden">
+
+            <h2>Simulation Complete!</h2>
+
+            <p>Your final score:</p>
+
+            <div id="final-score"></div>
+
+            <p id="result-message"></p>
+
+            <button onclick="restartGame()">Try Again</button>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>G8TE Digital Safe | Community Digital Safety Initiative</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
