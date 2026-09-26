@@ -21,9 +21,13 @@
 
             <p>
                 Test your ability to recognize scams, misinformation,
-                malware, and other digital threats across 10 levels —
-                from easy to hard.
+                malware, and other digital threats across 50 levels —
+                15 Easy, 15 Medium, and 20 Hard. Score at least 70%
+                to earn your certificate.
             </p>
+
+            <label for="player-name" class="name-label">Enter your name:</label>
+            <input type="text" id="player-name" placeholder="Your name" maxlength="40" />
 
             <button onclick="startGame()">Start Simulation</button>
         </section>
@@ -33,6 +37,7 @@
 
             <div class="top-bar">
                 <span id="scenario-number">Level 1</span>
+                <span id="difficulty-badge" class="badge"></span>
                 <span id="score">Score: 0</span>
             </div>
 
@@ -78,7 +83,22 @@
 
             <p id="result-message"></p>
 
+            <button id="certificate-btn" class="hidden" onclick="goToCertificate()">🏆 View My Certificate</button>
             <button onclick="restartGame()">Try Again</button>
+
+        </section>
+
+
+        <section id="certificate-screen" class="screen hidden">
+
+            <h2>Your Certificate</h2>
+
+            <canvas id="certificate-canvas" width="1000" height="700"></canvas>
+
+            <div class="certificate-actions">
+                <button onclick="downloadCertificate()">⬇️ Download Certificate</button>
+                <button onclick="backToHomeFromCertificate()">Back to Home</button>
+            </div>
 
         </section>
 
