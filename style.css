@@ -289,14 +289,3 @@ footer {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.85; }
 }
-
-/* G8TE Logo - Original Interface Preserved */
-
-.site-logo {
-    display: block;
-    width: 105px;
-    height: 105px;
-    object-fit: contain;
-    margin: 0 auto 14px;
-    border-radius: 12px;
-}
