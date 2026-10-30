@@ -289,3 +289,11 @@ footer {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.85; }
 }
+
+.site-logo {
+    height: 90px;
+    background: white;
+    padding: 6px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
