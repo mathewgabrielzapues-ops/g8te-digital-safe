@@ -1148,20 +1148,7 @@ function restartGame() {
 }
 
 
-
 // ===================== CERTIFICATE =====================
-
-const certificateLogo = new Image();
-certificateLogo.src = "g8te-logo.png";
-
-certificateLogo.onload = function () {
-    const screen = document.getElementById("certificate-screen");
-
-    if (screen && !screen.classList.contains("hidden")) {
-        drawCertificate();
-    }
-};
-
 
 function goToCertificate() {
 
@@ -1201,11 +1188,6 @@ function drawCertificate() {
     ctx.font = "bold 26px Arial";
     ctx.fillText("G8TE DIGITAL SAFE", W / 2, 110);
 
-    // Official G8TE logo
-    if (certificateLogo.complete && certificateLogo.naturalWidth > 0) {
-        ctx.drawImage(certificateLogo, 75, 75, 100, 100);
-    }
-
     // Title
     ctx.font = "bold 48px Georgia";
     ctx.fillStyle = "#173f5f";
@@ -1244,12 +1226,7 @@ function drawCertificate() {
     ctx.fillText("Final Score: " + score + " / " + scenarios.length + " (" + percent + "%)", W / 2, 465);
 
     // Date
-    const dateStr = new Date().toLocaleDateString(undefined, {
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-    });
-
+    const dateStr = new Date().toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
     ctx.font = "16px Arial";
     ctx.fillStyle = "#666";
     ctx.fillText("Date: " + dateStr, W / 2, 510);
@@ -1263,25 +1240,10 @@ function drawCertificate() {
 
 function downloadCertificate() {
 
-    // Wait for the logo to finish loading.
-    if (!certificateLogo.complete) {
-        certificateLogo.addEventListener("load", downloadCertificate, { once: true });
-        return;
-    }
-
-    if (certificateLogo.naturalWidth === 0) {
-        alert("The G8TE logo could not be loaded. Check that g8te-logo.png is in the same folder.");
-        return;
-    }
-
-    drawCertificate();
-
     const canvas = document.getElementById("certificate-canvas");
     const link = document.createElement("a");
 
-    link.download = "G8TE_Digital_Safe_Certificate_" +
-        playerName.replace(/\s+/g, "_") + ".png";
-
+    link.download = "G8TE_Digital_Safe_Certificate_" + playerName.replace(/\s+/g, "_") + ".png";
     link.href = canvas.toDataURL("image/png");
     link.click();
 }
