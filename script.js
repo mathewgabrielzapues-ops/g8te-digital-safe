@@ -1158,8 +1158,14 @@ function goToCertificate() {
     drawCertificate();
 }
 
+const logoImg = new Image();
+logoImg.src = LOGO_DATA;
 
 function drawCertificate() {
+        // Logo
+    if (logoImg.complete) {
+        ctx.drawImage(logoImg, W / 2 - 40, 55, 80, 80);
+    }
 
     const canvas = document.getElementById("certificate-canvas");
     const ctx = canvas.getContext("2d");
