@@ -12,12 +12,7 @@
 <body>
 
     <header>
-        <img
-            src="g8te-logo.png"
-            alt="G8TE Official Logo"
-            class="site-logo"
-        >
-
+        <img src="g8te-logo.png" alt="G8TE Logo" class="site-logo">
         <h1>G8TE DIGITAL SAFE</h1>
         <p>Learn. Practice. Stay Safe.</p>
     </header>
@@ -34,21 +29,12 @@
                 to earn your certificate.
             </p>
 
-            <label for="player-name" class="name-label">
-                Enter your name:
-            </label>
+            <label for="player-name" class="name-label">Enter your name:</label>
+            <input type="text" id="player-name" placeholder="Your name" maxlength="40" />
 
-            <input
-                type="text"
-                id="player-name"
-                placeholder="Your name"
-                maxlength="40"
-            >
-
-            <button onclick="startGame()">
-                Start Simulation
-            </button>
+            <button onclick="startGame()">Start Simulation</button>
         </section>
+
 
         <section id="game-screen" class="screen hidden">
 
@@ -74,38 +60,21 @@
                 <button id="feedback-button"></button>
             </div>
 
-            <div
-                id="consequence-overlay"
-                class="consequence-overlay hidden"
-            >
+            <!-- Consequence simulation overlay: purely visual, contained inside the page.
+                 No real network requests, downloads, redirects, or popups are triggered. -->
+            <div id="consequence-overlay" class="consequence-overlay hidden">
                 <div class="consequence-content">
-
-                    <div
-                        id="consequence-icon"
-                        class="consequence-icon"
-                    >
-                        ⚠️
-                    </div>
-
-                    <p
-                        id="consequence-line"
-                        class="consequence-line"
-                    >
-                        Loading...
-                    </p>
-
+                    <div id="consequence-icon" class="consequence-icon">⚠️</div>
+                    <p id="consequence-line" class="consequence-line">Loading...</p>
                     <div class="consequence-bar">
                         <div class="consequence-bar-fill"></div>
                     </div>
-
-                    <p class="consequence-tag">
-                        SIMULATION — nothing real happened to this device
-                    </p>
-
+                    <p class="consequence-tag">SIMULATION — nothing real happened to this device</p>
                 </div>
             </div>
 
         </section>
+
 
         <section id="result-screen" class="screen hidden">
 
@@ -117,40 +86,21 @@
 
             <p id="result-message"></p>
 
-            <button
-                id="certificate-btn"
-                class="hidden"
-                onclick="goToCertificate()"
-            >
-                🏆 View My Certificate
-            </button>
-
-            <button onclick="restartGame()">
-                Try Again
-            </button>
+            <button id="certificate-btn" class="hidden" onclick="goToCertificate()">🏆 View My Certificate</button>
+            <button onclick="restartGame()">Try Again</button>
 
         </section>
+
 
         <section id="certificate-screen" class="screen hidden">
 
             <h2>Your Certificate</h2>
 
-            <canvas
-                id="certificate-canvas"
-                width="1000"
-                height="700"
-            ></canvas>
+            <canvas id="certificate-canvas" width="1000" height="700"></canvas>
 
             <div class="certificate-actions">
-
-                <button onclick="downloadCertificate()">
-                    ⬇️ Download Certificate
-                </button>
-
-                <button onclick="backToHomeFromCertificate()">
-                    Back to Home
-                </button>
-
+                <button onclick="downloadCertificate()">⬇️ Download Certificate</button>
+                <button onclick="backToHomeFromCertificate()">Back to Home</button>
             </div>
 
         </section>
@@ -158,9 +108,7 @@
     </main>
 
     <footer>
-        <p>
-            G8TE Digital Safe | Community Digital Safety Initiative
-        </p>
+        <p>G8TE Digital Safe | Community Digital Safety Initiative</p>
     </footer>
 
     <script src="script.js"></script>
